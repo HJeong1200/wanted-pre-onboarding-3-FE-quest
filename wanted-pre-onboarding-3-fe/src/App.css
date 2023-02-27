@@ -11,4 +11,6 @@ aside {
   width: 300px;
   height: calc(100vh - 30px);
   border-right: 1px solid gray;
+  display: flex;
+  flex-direction: column;
 }
