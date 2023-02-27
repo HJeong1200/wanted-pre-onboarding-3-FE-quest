@@ -1,11 +1,8 @@
 import "App.css";
 import Header from "components/Header";
-import Main from "pages/Main";
 import Sidebar from "components/Sidebar";
-import PageB from "pages/PabeB";
-import PageA from "pages/PageA";
-import PageC from "pages/PageC";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Pages } from "pages/Pages";
 
 function App() {
   return (
@@ -14,10 +11,9 @@ function App() {
       <div className="contents">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/pagea" element={<PageA />} />
-          <Route path="/pageb" element={<PageB />} />
-          <Route path="/pagec" element={<PageC />} />
+          {Pages.map(({ path, component }) => {
+            return <Route path={path} element={component()} />;
+          })}
         </Routes>
       </div>
     </BrowserRouter>
